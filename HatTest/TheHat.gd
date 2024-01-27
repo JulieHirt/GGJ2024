@@ -10,6 +10,7 @@ var heldItem: Item = Item.new()
 var waterProj = preload("res://Projectiles/WaterDroplet.tscn")
 var juggleProj = preload("res://Projectiles/JuggleBall.tscn")
 var chickProj = preload("res://Projectiles/RubberChicken.tscn")
+var balloonProj = preload("res://Projectiles/BalloonAnimal.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -45,6 +46,8 @@ func _input(ev):
 func UseItem(mousePos, playPos):
 	print("Using item " + str(heldItem.itemName) + "(" + str(heldItem.id) + ")")
 	match heldItem.id:
+		0: 
+			print("You are holding nothing!")
 		1: #Nonlethal chicken
 			var newProj = chickProj.instantiate()
 			newProj.startPos = playPos
@@ -55,8 +58,12 @@ func UseItem(mousePos, playPos):
 			newProj.startPos = playPos
 			newProj.targetPos = mousePos
 			add_child(newProj)
-		3:
-			print("temp")
+		3: #Balloon Animal (Lethal)
+			var newProj = balloonProj.instantiate()
+			newProj.startPos = playPos
+			newProj.targetPos = mousePos
+			newProj.lethal = true
+			add_child(newProj)
 		4: #Nonlethal juggling balls / nose
 			var newProj = juggleProj.instantiate()
 			newProj.startPos = playPos
@@ -84,7 +91,7 @@ func UseItem(mousePos, playPos):
 			add_child(newProj)
 		
 		_:
-			print("temp")
+			print("id " + str(heldItem.id) + "not implemented")
 
 #Generate a random number that will be turned into an item
 func RandomItem():
@@ -111,7 +118,8 @@ func RandomItem():
 			2: #Squirt Flower (normal)
 				heldItem.itemName = "Squirt Flower"
 			3: #Horn (normal)
-				heldItem.itemName = "Horn"
+				heldItem.itemName = "Balloon Animal"
+				heldItem.lethal = true
 			4: #Juggling Balls (normal)
 				heldItem.itemName = "Juggling Balls"
 			5: #Rubber Chicken (lethal)

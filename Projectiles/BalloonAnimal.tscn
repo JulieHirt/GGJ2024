@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfqdlxpb02raa"]
+
+[ext_resource type="Texture2D" uid="uid://bxrdoqtxj22nt" path="res://Art/balloonanimal.webp" id="1_bws4c"]
+[ext_resource type="Script" path="res://BalloonMovement.gd" id="1_si3ge"]
+
+[node name="BalloonAnimal" type="Node2D"]
+script = ExtResource("1_si3ge")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.121932, 0.104071)
+texture = ExtResource("1_bws4c")

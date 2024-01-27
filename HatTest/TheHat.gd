@@ -4,6 +4,7 @@ extends Node
 var randGen = RandomNumberGenerator.new()
 
 var holdingItem: bool = false; #Whether the clown is already holding an item.
+var heldItem: Item
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,6 +15,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func _input(ev):
+	##Run this code IF a key is pressed, the key is E, it's not being held, and the button is not released
+	##(Without that last bit it would trigger on both button press and release)
+	if ev is InputEventKey and ev.keycode == KEY_E and not ev.echo and ev.pressed:
+		RandomItem()
+		
+	if ev is InputEventKey and ev.keycode == KEY_R and not ev.echo and ev.pressed:
+		TossItem()
 
 #Generate a random number that will be turned into an item
 func RandomItem():
@@ -24,7 +34,45 @@ func RandomItem():
 		##CONSIDER: tossing the item currently held instead of rejecting the command
 	#If not, get the number
 	else:
-		var randNum: int = randGen.randf_range(1, 4);
+		var randNum: int = randGen.randf_range(1, 5);  #Remember to update this
+		#NOTE: This seems to be lower inclusive, upper exclusive. this means the highest number will never be rolled.
+		#Always make it one higher than we're using
+		
+		print("Making item " + str(randNum))
+		holdingItem = true
+		
+		#Actually make the item
+		heldItem = Item.new()
+		match randNum:
+			1: #Rubber Chicken (normal)
+				heldItem.id = 1
+				heldItem.susSightUsed = true
+				heldItem.itemName = "Rubber Chicken"
+			2: #Squirt Flower (normal)
+				heldItem.id = 2
+				heldItem.susSightUsed = true
+				heldItem.itemName = "Squirt Flower"
+			3: #Horn (normal)
+				heldItem.id = 3
+				heldItem.itemName = "Horn"
+			4: #Juggling Balls (normal)
+				heldItem.id = 4
+				heldItem.itemName = "Juggling Balls"
+			_: 
+				print("No implementation for item with id " + str(randNum))
+		
+		heldItem.debug()
+		
 	##TODO: take this number and make an item
-	##TODO: have this function be called on a certain button press
+	
+	
+#ditch the currently held item
+func TossItem():
+	if(holdingItem):
+		holdingItem = false;
+		print("Ditched item")
+	else:
+		print("You're not holding an item, dumbass")
+	##TODO: when this has actual items attached, remember to actually remove them!
+	##TODO: And once those items are represented by things in the game world, create one on the floor
 	

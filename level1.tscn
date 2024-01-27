@@ -16,7 +16,8 @@ offset_bottom = 23.0
 text = "Clown Assassin"
 
 [node name="Guard" type="Sprite2D" parent="."]
-position = Vector2(118, 188)
+position = Vector2(617.25, 231.5)
+scale = Vector2(0.347682, 0.274553)
 texture = ExtResource("1_kdiwi")
 script = ExtResource("2_rhati")
 
@@ -24,6 +25,8 @@ script = ExtResource("2_rhati")
 script = ExtResource("3_krlbr")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-109.5, 221)
+scale = Vector2(0.492228, 0.5)
 texture = ExtResource("1_qw7sk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]

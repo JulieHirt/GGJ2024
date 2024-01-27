@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dp4dvoaw5lxbj"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(191, 117)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(100, 200)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Clown Assassin"

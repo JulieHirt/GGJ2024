@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp4dvoaw5lxbj"]
+[gd_scene load_steps=6 format=3 uid="uid://dp4dvoaw5lxbj"]
 
+[ext_resource type="Texture2D" uid="uid://ox4ammeeau4x" path="res://Art/PlaceholderGuard.PNG" id="1_kdiwi"]
 [ext_resource type="Texture2D" uid="uid://3y5twoyvw8ui" path="res://Art/PlaceholderClown.PNG" id="1_qw7sk"]
+[ext_resource type="Script" path="res://Guard.gd" id="2_rhati"]
+[ext_resource type="Script" path="res://PlayerMovement.gd" id="3_krlbr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2m6y"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(191, 117)
@@ -10,6 +15,16 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Clown Assassin"
 
-[node name="PlaceholderClown" type="Sprite2D" parent="."]
+[node name="Guard" type="Sprite2D" parent="."]
 position = Vector2(118, 188)
+texture = ExtResource("1_kdiwi")
+script = ExtResource("2_rhati")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("3_krlbr")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("1_qw7sk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_s2m6y")

@@ -4,7 +4,7 @@ var itemName: String = "Nothing"
 var id: int = 0             # Which item this is
 						# 0: Currently holding nothing
 						# 1: Rubber Chicken (normal)
-						# 2: Squirt Flower (normal)
+						# 2: Water Gun (normal)
 						# 3: Balloon Animal (Lethal)
 						# 4: Juggling Balls (normal)
 						# 5: Rubber Chicken (lethal)

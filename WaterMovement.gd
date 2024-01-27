@@ -17,7 +17,7 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
-	t += delta*0.4
+	t += delta*0.8
 	$Sprite2D.global_position = startPos.lerp(targetPos, t)
 	if t >= 2:
 		queue_free()

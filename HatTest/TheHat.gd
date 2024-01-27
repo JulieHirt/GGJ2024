@@ -116,7 +116,7 @@ func RandomItem():
 			1: #Rubber Chicken (normal)
 				heldItem.itemName = "Rubber Chicken"
 			2: #Squirt Flower (normal)
-				heldItem.itemName = "Squirt Flower"
+				heldItem.itemName = "Water Gun"
 			3: #Horn (normal)
 				heldItem.itemName = "Balloon Animal"
 				heldItem.lethal = true

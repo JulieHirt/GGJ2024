@@ -65,4 +65,6 @@ func handleCollision():
 		var collider =collision.get_collider()
 		print_debug(collider.name)
 		if(collider.name == "Player"):
-			print("Game Over")
+			print("Game Over in guard prefab")
+			get_node("..").GameOver()
+			#get_tree().change_scene_to_file("res://game_over.tscn")

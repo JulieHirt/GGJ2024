@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp4dvoaw5lxbj"]
+[gd_scene load_steps=7 format=3 uid="uid://dp4dvoaw5lxbj"]
 
 [ext_resource type="Texture2D" uid="uid://3y5twoyvw8ui" path="res://Art/PlaceholderClown.PNG" id="1_qw7sk"]
 [ext_resource type="PackedScene" uid="uid://c8tvkoy1qfr85" path="res://guard_prefab.tscn" id="3_8mnv1"]
 [ext_resource type="Script" path="res://PlayerMovement.gd" id="3_krlbr"]
+[ext_resource type="PackedScene" uid="uid://drxm40j6af0ox" path="res://wall.tscn" id="4_6473g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2m6y"]
 size = Vector2(91, 55)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5r67k"]
-vertices = PackedVector2Array(536, -60, 790, 20, 919, 483, -217, 480, -228, -111)
+vertices = PackedVector2Array(978, 504, -331, 504, -327, -196, 571, -197, 976, -197)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(539, -70, -239, -122, -227, 490, 933, 494, 799, 12)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(571, -207, -337, -206, -341, 514, 988, 514, 986, -208)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Node2D" type="Node2D"]
@@ -42,3 +43,6 @@ movement_target = NodePath("../Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(788, 423)
+
+[node name="wall" parent="." instance=ExtResource("4_6473g")]
+position = Vector2(371, 159)

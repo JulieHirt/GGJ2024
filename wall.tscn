@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://drxm40j6af0ox"]
+
+[ext_resource type="Texture2D" uid="uid://lotqf17quake" path="res://icon.svg" id="1_1bjh3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl8lx"]
+size = Vector2(123, 121)
+
+[node name="wall" type="Sprite2D"]
+texture = ExtResource("1_1bjh3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_nl8lx")

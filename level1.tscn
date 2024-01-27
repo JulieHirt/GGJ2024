@@ -164,9 +164,10 @@ tilemap = NodePath("../../TileMap")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_5r67k")
 
-[node name="GuardPrefab" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("3_8mnv1")]
+[node name="GuardPrefab" parent="." node_paths=PackedStringArray("movement_target", "marker_list") instance=ExtResource("3_8mnv1")]
 position = Vector2(3, -2)
 movement_target = NodePath("../Marker List/Marker2D")
+marker_list = NodePath("../Marker List")
 
 [node name="wall" parent="." instance=ExtResource("4_6473g")]
 position = Vector2(371, 159)

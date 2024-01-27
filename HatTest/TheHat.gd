@@ -34,7 +34,7 @@ func RandomItem():
 		##CONSIDER: tossing the item currently held instead of rejecting the command
 	#If not, get the number
 	else:
-		var randNum: int = randGen.randf_range(1, 5);  #Remember to update this
+		var randNum: int = randGen.randf_range(1, 8);  #Remember to update this
 		#NOTE: This seems to be lower inclusive, upper exclusive. this means the highest number will never be rolled.
 		#Always make it one higher than we're using
 		
@@ -43,21 +43,29 @@ func RandomItem():
 		
 		#Actually make the item
 		heldItem = Item.new()
+		heldItem.id = randNum
 		match randNum:
 			1: #Rubber Chicken (normal)
-				heldItem.id = 1
-				heldItem.susSightUsed = true
 				heldItem.itemName = "Rubber Chicken"
 			2: #Squirt Flower (normal)
-				heldItem.id = 2
-				heldItem.susSightUsed = true
 				heldItem.itemName = "Squirt Flower"
 			3: #Horn (normal)
-				heldItem.id = 3
 				heldItem.itemName = "Horn"
 			4: #Juggling Balls (normal)
-				heldItem.id = 4
 				heldItem.itemName = "Juggling Balls"
+			5: #Rubber Chicken (lethal)
+				heldItem.itemName = "Rubber Chicken"
+				heldItem.susSightUsed = true
+				heldItem.lethal = true
+			6: #Squirt Flower (acid)
+				heldItem.itemName = "Squirt Flower"
+				heldItem.susSightUsed = true
+				heldItem.lethal = true
+			7: #Juggling Balls (grenades)
+				heldItem.itemName = "Juggling Balls"
+				heldItem.susSightUsed = true
+				heldItem.susHearUsed = true
+				heldItem.lethal = true
 			_: 
 				print("No implementation for item with id " + str(randNum))
 		

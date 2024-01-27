@@ -7,6 +7,9 @@ var id: int = 0             # Which item this is
 						# 2: Squirt Flower (normal)
 						# 3: Horn (normal)
 						# 4: Juggling Balls (normal)
+						# 5: Rubber Chicken (lethal)
+						# 6: Squirt Flower (lethal (acid))
+						# 7: Juggling Balls (grenades)
 						##TODO: I'll fill out this list more later
 						
 var susSightHeld: bool = false #If people are suspicious on seeing this item held
@@ -28,4 +31,9 @@ func _process(delta):
 
 #Just a debug function
 func debug():
-	print("I am called " + str(itemName) + " and my ID is " + str(id))
+	var safety: String
+	if lethal:
+		safety = "I am extremely dangerous"
+	else:
+		safety = "I am child-friendly"
+	print("I am called " + str(itemName) + ", my ID is " + str(id) + ", and " + safety)

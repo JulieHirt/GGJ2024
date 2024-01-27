@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://dp4dvoaw5lxbj"]
+
+[gd_scene load_steps=18 format=3 uid="uid://cwwuqu17ujgeo"]
 
 [ext_resource type="Script" path="res://level1.gd" id="1_tn5r5"]
 [ext_resource type="PackedScene" uid="uid://c8tvkoy1qfr85" path="res://guard_prefab.tscn" id="3_8mnv1"]
 [ext_resource type="Texture2D" uid="uid://drpt55folfe3q" path="res://Art/Clown_idle.png" id="3_j4qmc"]
 [ext_resource type="Script" path="res://PlayerMovement.gd" id="3_krlbr"]
 [ext_resource type="PackedScene" uid="uid://drxm40j6af0ox" path="res://wall.tscn" id="4_6473g"]
+[ext_resource type="Script" path="res://PlayerCamera.gd" id="4_nty65"]
 [ext_resource type="PackedScene" uid="uid://s3bg5xptps2t" path="res://HatTest/itemTest.tscn" id="5_q7vld"]
 [ext_resource type="Texture2D" uid="uid://cnbnobjtfuk1q" path="res://Art/Tiles/Tilesheet_1.png" id="6_g8qnn"]
 
@@ -147,6 +149,18 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_xqo4r")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="PlayerCamera" type="Camera2D" parent="Player" node_paths=PackedStringArray("tilemap")]
+position = Vector2(-109, 227)
+zoom = Vector2(3.325, 3.325)
+limit_left = -139
+limit_top = -80
+limit_right = 1167
+limit_bottom = 621
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("4_nty65")
+tilemap = NodePath("../../TileMap")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_5r67k")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://s3bg5xptps2t"]
+
+[ext_resource type="Texture2D" uid="uid://clbbtfoqs3iog" path="res://Art/MagicHat.png" id="1_fr4l6"]
+
+[node name="ItemTest" type="Node2D"]
+position = Vector2(1052, 324)
+
+[node name="FunnyHat" type="Node2D" parent="."]
+position = Vector2(-363, -405)
+
+[node name="Sprite2D" type="Sprite2D" parent="FunnyHat"]
+position = Vector2(31, 56)
+texture = ExtResource("1_fr4l6")

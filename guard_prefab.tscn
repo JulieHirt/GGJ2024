@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8tvkoy1qfr85"]
+
+[ext_resource type="Script" path="res://guard_prefab.gd" id="1_3p5ii"]
+[ext_resource type="Texture2D" uid="uid://ox4ammeeau4x" path="res://Art/PlaceholderGuard.PNG" id="1_5xq0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukk1h"]
+size = Vector2(67, 48)
+
+[node name="GuardPrefab" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
+position = Vector2(0, -4)
+script = ExtResource("1_3p5ii")
+navigation_agent = NodePath("NavigationAgent2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -71)
+scale = Vector2(0.453642, 0.470982)
+texture = ExtResource("1_5xq0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 7)
+shape = SubResource("RectangleShape2D_ukk1h")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true

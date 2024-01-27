@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://dp4dvoaw5lxbj"]
 
 [ext_resource type="PackedScene" uid="uid://c8tvkoy1qfr85" path="res://guard_prefab.tscn" id="3_8mnv1"]
-[ext_resource type="Texture2D" uid="uid://iuials0nifnx" path="res://Art/Clown_idle.png" id="3_j4qmc"]
+[ext_resource type="Texture2D" uid="uid://drpt55folfe3q" path="res://Art/Clown_idle.png" id="3_j4qmc"]
 [ext_resource type="Script" path="res://PlayerMovement.gd" id="3_krlbr"]
 [ext_resource type="PackedScene" uid="uid://drxm40j6af0ox" path="res://wall.tscn" id="4_6473g"]
 [ext_resource type="PackedScene" uid="uid://s3bg5xptps2t" path="res://HatTest/itemTest.tscn" id="5_q7vld"]

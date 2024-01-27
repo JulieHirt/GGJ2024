@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 [gd_scene load_steps=12 format=3 uid="uid://dp4dvoaw5lxbj"]
+=======
+[gd_scene load_steps=17 format=3 uid="uid://dp4dvoaw5lxbj"]
+>>>>>>> b416a3ca8a000a4b4765e8c551a78689dd712a00
 
-[ext_resource type="Texture2D" uid="uid://3y5twoyvw8ui" path="res://Art/PlaceholderClown.PNG" id="1_qw7sk"]
 [ext_resource type="PackedScene" uid="uid://c8tvkoy1qfr85" path="res://guard_prefab.tscn" id="3_8mnv1"]
+[ext_resource type="Texture2D" uid="uid://csjqyh7hak3u8" path="res://Art/clown_idle.jpg" id="3_8o883"]
 [ext_resource type="Script" path="res://PlayerMovement.gd" id="3_krlbr"]
 [ext_resource type="PackedScene" uid="uid://drxm40j6af0ox" path="res://wall.tscn" id="4_6473g"]
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="4_nty65"]
@@ -52,6 +56,57 @@ sources/0 = SubResource("TileSetAtlasSource_qb7tr")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2m6y"]
 size = Vector2(91, 55)
 
+[sub_resource type="Animation" id="Animation_qyvpo"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_f7vjj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xnoxy"]
+_data = {
+"RESET": SubResource("Animation_f7vjj"),
+"idle": SubResource("Animation_qyvpo")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4jydr"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g0smc"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xqo4r"]
+states/Start/position = Vector2(291, 74)
+states/idle/node = SubResource("AnimationNodeAnimation_4jydr")
+states/idle/position = Vector2(468, 74)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_g0smc")]
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5r67k"]
 vertices = PackedVector2Array(978, 504, -331, 504, -327, -196, 571, -197, 976, -197)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
@@ -79,7 +134,8 @@ script = ExtResource("3_krlbr")
 [node name="PlayerSprite" type="Sprite2D" parent="Player"]
 position = Vector2(-109.5, 221)
 scale = Vector2(0.492228, 0.5)
-texture = ExtResource("1_qw7sk")
+texture = ExtResource("3_8o883")
+hframes = 4
 
 [node name="PlayerCamera" type="Camera2D" parent="Player/PlayerSprite" node_paths=PackedStringArray("tilemap")]
 position = Vector2(53.8368, 6)
@@ -98,6 +154,18 @@ metadata/_edit_lock_ = true
 [node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-111.5, 235.5)
 shape = SubResource("RectangleShape2D_s2m6y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_xnoxy")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_xnoxy")
+}
+tree_root = SubResource("AnimationNodeStateMachine_xqo4r")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_5r67k")

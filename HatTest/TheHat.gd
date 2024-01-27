@@ -9,6 +9,7 @@ var heldItem: Item = Item.new()
 #Projectiles
 var waterProj = preload("res://Projectiles/WaterDroplet.tscn")
 var juggleProj = preload("res://Projectiles/JuggleBall.tscn")
+var chickProj = preload("res://Projectiles/RubberChicken.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -44,24 +45,30 @@ func _input(ev):
 func UseItem(mousePos, playPos):
 	print("Using item " + str(heldItem.itemName) + "(" + str(heldItem.id) + ")")
 	match heldItem.id:
-		1:
-			print("temp")
+		1: #Nonlethal chicken
+			var newProj = chickProj.instantiate()
+			newProj.startPos = playPos
+			newProj.targetPos = mousePos
+			add_child(newProj)
 		2:  #Nonlethal water droplet
 			var newProj = waterProj.instantiate()
 			newProj.startPos = playPos
 			newProj.targetPos = mousePos
 			add_child(newProj)
-			
-			print("temp")
 		3:
 			print("temp")
-		4:
+		4: #Nonlethal juggling balls / nose
 			var newProj = juggleProj.instantiate()
 			newProj.startPos = playPos
 			newProj.targetPos = mousePos
 			add_child(newProj)
-		5:
-			print("temp")
+		5:  #Lethal chicken
+			var newProj = chickProj.instantiate()
+			newProj.startPos = playPos
+			newProj.targetPos = mousePos
+			newProj.lethal = true
+			add_child(newProj)
+			
 		6:  #Lethal water droplet
 			var newProj = waterProj.instantiate()
 			newProj.startPos = playPos
@@ -69,8 +76,13 @@ func UseItem(mousePos, playPos):
 			newProj.lethal = true
 			add_child(newProj)
 			
-		7:
-			print("temp")
+		7: #Lethal ball/nose
+			var newProj = juggleProj.instantiate()
+			newProj.startPos = playPos
+			newProj.targetPos = mousePos
+			newProj.lethal = true
+			add_child(newProj)
+		
 		_:
 			print("temp")
 

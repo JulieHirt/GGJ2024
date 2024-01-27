@@ -21,6 +21,7 @@ func _ready():
 	#The difference between the two normal points
 	var diffX = targetPos.x - startPos.x
 	var diffY = targetPos.y - startPos.y
+	#If they're negative
 	if diffX < 0:
 		xNeg = true
 	if diffY < 0:
@@ -33,7 +34,9 @@ func _ready():
 	
 	#Get the new Y value
 	var newY = distance * sin(oldAngle + 45)
+	#Then the X
 	var newX = sqrt(pow(diffX,2) + pow(diffY,2) - pow(newY,2))
+	
 	if xNeg:
 		newX *= -1
 	if yNeg:

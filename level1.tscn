@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp4dvoaw5lxbj"]
+[gd_scene load_steps=8 format=3 uid="uid://dp4dvoaw5lxbj"]
 
 [ext_resource type="Texture2D" uid="uid://ox4ammeeau4x" path="res://Art/PlaceholderGuard.PNG" id="1_kdiwi"]
 [ext_resource type="Texture2D" uid="uid://3y5twoyvw8ui" path="res://Art/PlaceholderClown.PNG" id="1_qw7sk"]
@@ -6,10 +6,14 @@
 [ext_resource type="Script" path="res://PlayerMovement.gd" id="3_krlbr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2m6y"]
+size = Vector2(91, 55)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lvnny"]
 outlines = Array[PackedVector2Array]([PackedVector2Array(-180, 520, -174, 179, 275, 180, 314, 107, -172, 78, -173, -99, 281, -99, 477, 86, 542, -1, 478, -103, 942, -101, 942, 68, 940, 175, 655, 157, 595, 285, 931, 275, 942, 479, 947, 521, 526, 517, 453, 507, 405, 315, 333, 381, 225, 522)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gvvg"]
+size = Vector2(57, 42)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(191, 117)
@@ -19,22 +23,31 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Clown Assassin"
 
-[node name="GuardSprite2D" type="Sprite2D" parent="."]
-position = Vector2(617.25, 231.5)
-scale = Vector2(0.347682, 0.274553)
-texture = ExtResource("1_kdiwi")
-script = ExtResource("2_rhati")
-
-[node name="Clown" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("3_krlbr")
 
-[node name="CharacterBody2D#PlayerSprite2D" type="Sprite2D" parent="Clown"]
+[node name="PlayerSprite" type="Sprite2D" parent="Player"]
 position = Vector2(-109.5, 221)
 scale = Vector2(0.492228, 0.5)
 texture = ExtResource("1_qw7sk")
 
-[node name="CharacterBody2D#CollisionShape2D" type="CollisionShape2D" parent="Clown"]
+[node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-111.5, 235.5)
 shape = SubResource("RectangleShape2D_s2m6y")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_lvnny")
+
+[node name="Guard" type="CharacterBody2D" parent="."]
+script = ExtResource("2_rhati")
+
+[node name="GuardSprite2D" type="Sprite2D" parent="Guard"]
+position = Vector2(439, 196)
+scale = Vector2(0.347682, 0.274553)
+texture = ExtResource("1_kdiwi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard"]
+position = Vector2(441.5, 236)
+shape = SubResource("RectangleShape2D_0gvvg")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Guard"]

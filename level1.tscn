@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp4dvoaw5lxbj"]
+[gd_scene load_steps=8 format=3 uid="uid://dp4dvoaw5lxbj"]
 
 [ext_resource type="Texture2D" uid="uid://3y5twoyvw8ui" path="res://Art/PlaceholderClown.PNG" id="1_qw7sk"]
 [ext_resource type="PackedScene" uid="uid://c8tvkoy1qfr85" path="res://guard_prefab.tscn" id="3_8mnv1"]
 [ext_resource type="Script" path="res://PlayerMovement.gd" id="3_krlbr"]
 [ext_resource type="PackedScene" uid="uid://drxm40j6af0ox" path="res://wall.tscn" id="4_6473g"]
+[ext_resource type="PackedScene" uid="uid://s3bg5xptps2t" path="res://HatTest/itemTest.tscn" id="5_q7vld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2m6y"]
 size = Vector2(91, 55)
@@ -49,3 +50,7 @@ position = Vector2(371, 159)
 
 [node name="wall2" parent="." instance=ExtResource("4_6473g")]
 position = Vector2(37, 375)
+
+[node name="ItemTest" parent="." instance=ExtResource("5_q7vld")]
+position = Vector2(500, 324)
+scale = Vector2(0.1, 0.1)

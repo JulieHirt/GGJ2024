@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6bglfk0t38ti"]
+
+[ext_resource type="Texture2D" uid="uid://de0qdhqf7ni07" path="res://Art/jeff-bezos.jpg" id="1_y3nsq"]
+
+[node name="TargetTest" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("1_y3nsq")

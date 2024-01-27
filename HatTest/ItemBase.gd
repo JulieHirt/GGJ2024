@@ -1,6 +1,6 @@
 class_name Item extends Node #Currently not sure if this needs to extend anything, but I'll keep it just to be safe
 
-var itemName: String = "missingno"
+var itemName: String = "Nothing"
 var id: int = 0             # Which item this is
 						# 0: Something's wrong! This shouldn't happen!
 						# 1: Rubber Chicken (normal)
@@ -10,7 +10,7 @@ var id: int = 0             # Which item this is
 						# 5: Rubber Chicken (lethal)
 						# 6: Squirt Flower (lethal (acid))
 						# 7: Juggling Balls (grenades)
-						##TODO: I'll fill out this list more later
+						##TODO: I'll fill out this list more later, this seems like a good starting point
 						
 var susSightHeld: bool = false #If people are suspicious on seeing this item held
 var susHearUsed: bool = false  #If people are suspicious on hearing this item used

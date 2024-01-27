@@ -3,8 +3,8 @@ extends Node
 #The random number generator
 var randGen = RandomNumberGenerator.new()
 
-var holdingItem: bool = false; #Whether the clown is already holding an item.
-var heldItem: Item
+var holdingItem: bool = false #Whether the clown is already holding an item.
+var heldItem: Item = Item.new()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -34,9 +34,9 @@ func RandomItem():
 		##CONSIDER: tossing the item currently held instead of rejecting the command
 	#If not, get the number
 	else:
-		var randNum: int = randGen.randf_range(1, 8);  #Remember to update this
+		var randNum: int = randGen.randf_range(1, 8);  #NOTE: Remember to update this as needed
 		#NOTE: This seems to be lower inclusive, upper exclusive. this means the highest number will never be rolled.
-		#Always make it one higher than we're using
+		#In short, always make it one higher than we're using
 		
 		print("Making item " + str(randNum))
 		holdingItem = true
@@ -71,16 +71,15 @@ func RandomItem():
 		
 		heldItem.debug()
 		
-	##TODO: take this number and make an item
 	
 	
 #ditch the currently held item
 func TossItem():
 	if(holdingItem):
-		holdingItem = false;
+		holdingItem = false; 
+		heldItem = Item.new() #This is just a "nothing" item
 		print("Ditched item")
 	else:
 		print("You're not holding an item, dumbass")
-	##TODO: when this has actual items attached, remember to actually remove them!
 	##TODO: And once those items are represented by things in the game world, create one on the floor
 	

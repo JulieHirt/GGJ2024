@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dp4dvoaw5lxbj"]
+[gd_scene load_steps=13 format=3 uid="uid://dp4dvoaw5lxbj"]
 
-[ext_resource type="Texture2D" uid="uid://3y5twoyvw8ui" path="res://Art/PlaceholderClown.PNG" id="1_qw7sk"]
 [ext_resource type="PackedScene" uid="uid://c8tvkoy1qfr85" path="res://guard_prefab.tscn" id="3_8mnv1"]
+[ext_resource type="Texture2D" uid="uid://csjqyh7hak3u8" path="res://Art/clown_idle.jpg" id="3_8o883"]
 [ext_resource type="Script" path="res://PlayerMovement.gd" id="3_krlbr"]
 [ext_resource type="PackedScene" uid="uid://drxm40j6af0ox" path="res://wall.tscn" id="4_6473g"]
 [ext_resource type="PackedScene" uid="uid://s3bg5xptps2t" path="res://HatTest/itemTest.tscn" id="5_q7vld"]
@@ -51,6 +51,15 @@ sources/0 = SubResource("TileSetAtlasSource_qb7tr")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2m6y"]
 size = Vector2(91, 55)
 
+[sub_resource type="Animation" id="Animation_qyvpo"]
+resource_name = "idle"
+step = 0.2
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xnoxy"]
+_data = {
+"idle": SubResource("Animation_qyvpo")
+}
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5r67k"]
 vertices = PackedVector2Array(978, 504, -331, 504, -327, -196, 571, -197, 976, -197)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
@@ -76,11 +85,17 @@ script = ExtResource("3_krlbr")
 [node name="PlayerSprite" type="Sprite2D" parent="Player"]
 position = Vector2(-109.5, 221)
 scale = Vector2(0.492228, 0.5)
-texture = ExtResource("1_qw7sk")
+texture = ExtResource("3_8o883")
+hframes = 4
 
 [node name="PlayerCollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-111.5, 235.5)
 shape = SubResource("RectangleShape2D_s2m6y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+"": SubResource("AnimationLibrary_xnoxy")
+}
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_5r67k")

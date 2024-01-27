@@ -6,6 +6,9 @@ extends CharacterBody2D
 
 @export var movement_target: Node2D
 @export var navigation_agent: NavigationAgent2D
+@export var marker_list: Node2D #markerlist is the list of markers that the guard will travel in between
+
+var path_marker_index: int = 0 # the index of the path node that the agent is going towards
 
 func _ready():
 	# These values need to be adjusted for the actor's speed
@@ -29,8 +32,23 @@ func actor_setup():
 func set_movement_target(target_point: Vector2):
 	navigation_agent.target_position = target_point;
 
+func advanceToNextMarker():
+	print("reached marker. Going to next marker.")
+	#if we have not reached the last node yet
+	if(path_marker_index < marker_list.get_child_count()):
+		#set the target position to the next marker in the list
+		set_movement_target(marker_list.get_child(path_marker_index).position)
+		path_marker_index = path_marker_index + 1
+	#if we have reached the last node in the list
+	else:
+		path_marker_index = 0
+		#reset the marer index so we go towards the first marker
+
 func _physics_process(delta):
 	if navigation_agent.is_navigation_finished():
+		#return
+		#we have reached the marker. Go towards the next marker in the list.
+		advanceToNextMarker()
 		return
 	var current_agent_position: Vector2 = global_position
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
@@ -46,8 +64,6 @@ func _physics_process(delta):
 	#the direction and speed are stored in the special godot variable "velocity"
 	move_and_slide()
 	handleCollision()
-	
-
 
 	#guard follows set path
 	
@@ -56,7 +72,6 @@ func _physics_process(delta):
 	#extra features, add if there is time
 	#if it hears noise, go towards the source of the noise. then return to next path node
 	#if it "sees" player, go towards player. if it loses sight of player, return to next path node
-	pass
 
 
 func handleCollision():

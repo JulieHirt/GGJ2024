@@ -46,3 +46,6 @@ position = Vector2(788, 423)
 
 [node name="wall" parent="." instance=ExtResource("4_6473g")]
 position = Vector2(371, 159)
+
+[node name="wall2" parent="." instance=ExtResource("4_6473g")]
+position = Vector2(37, 375)

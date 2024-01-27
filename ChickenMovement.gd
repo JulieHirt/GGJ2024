@@ -16,9 +16,9 @@ func _ready():
 	var angle = atan(diffX / diffY)
 	
 	if startPos.y - targetPos.y < 0:
-		$Sprite2D.global_position = startPos + Vector2(sin(angle) , cos(angle)) * 75
+		$Sprite2D.global_position = startPos + Vector2(sin(angle) , cos(angle)) * 15
 	else:
-		$Sprite2D.global_position = startPos + Vector2(-1*sin(angle) , -1*cos(angle)) * 75
+		$Sprite2D.global_position = startPos + Vector2(-1*sin(angle) , -1*cos(angle)) * 15
 	realStartPos = $Sprite2D.global_position
 	
 
@@ -26,7 +26,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Sprite2D.global_position = startPos + (realStartPos - startPos).rotated(1.5 * t) 
-	$Sprite2D.rotation = 0 + (4 * t)
+	$Sprite2D.global_rotation = 0 + (4 * t)
 	t += 1.5 * delta
 	
 	if t >= 1:

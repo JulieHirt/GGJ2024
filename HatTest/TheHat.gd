@@ -13,6 +13,8 @@ var chickProj = preload("res://Projectiles/RubberChicken.tscn")
 var balloonProj = preload("res://Projectiles/BalloonAnimal.tscn")
 
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -35,7 +37,8 @@ func _input(ev):
 	#If the left mouse button is pressed, do projectile stuff with the item
 	#IMPORTANT: THIS WILL BREAK IF THE PLAYER'S POSITION IN THE TREE MOVES. YOU WILL HAVE TO EDIT IT!
 	if ev is InputEventMouseButton and ev.button_index == MOUSE_BUTTON_LEFT and ev.pressed:
-		var mousePos = ev.global_position
+		#var mousePos = ev.global_position
+		var mousePos = get_node(^"../../Node2D").get_global_mouse_position()
 		var player = get_node(^"../Player")
 		var playPos = player.global_position
 		print("Player position is " + str(playPos))

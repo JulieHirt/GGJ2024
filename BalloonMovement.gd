@@ -12,9 +12,9 @@ func _ready():
 	var angle = atan(diffX / diffY)
 	
 	if startPos.y - targetPos.y < 0:
-		$Sprite2D.global_position = startPos + Vector2(sin(angle) , cos(angle)) * 75
+		$Sprite2D.global_position = startPos + Vector2(sin(angle) , cos(angle)) * 15
 	else:
-		$Sprite2D.global_position = startPos + Vector2(-1*sin(angle) , -1*cos(angle)) * 75
+		$Sprite2D.global_position = startPos + Vector2(-1*sin(angle) , -1*cos(angle)) * 15
 	
 
 

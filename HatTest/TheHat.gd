@@ -38,7 +38,7 @@ func _input(ev):
 	#IMPORTANT: THIS WILL BREAK IF THE PLAYER'S POSITION IN THE TREE MOVES. YOU WILL HAVE TO EDIT IT!
 	if ev is InputEventMouseButton and ev.button_index == MOUSE_BUTTON_LEFT and ev.pressed:
 		#var mousePos = ev.global_position
-		var mousePos = get_node(^"../../Node2D").get_global_mouse_position()
+		var mousePos = get_node(^"../").get_global_mouse_position()
 		var player = get_node(^"../Player")
 		var playPos = player.global_position
 		print("Player position is " + str(playPos))

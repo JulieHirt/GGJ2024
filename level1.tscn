@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=18 format=3 uid="uid://cwwuqu17ujgeo"]
+[gd_scene load_steps=19 format=3 uid="uid://dp4dvoaw5lxbj"]
 
 [ext_resource type="Script" path="res://level1.gd" id="1_tn5r5"]
 [ext_resource type="PackedScene" uid="uid://c8tvkoy1qfr85" path="res://guard_prefab.tscn" id="3_8mnv1"]

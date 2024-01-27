@@ -6,6 +6,12 @@ var randGen = RandomNumberGenerator.new()
 var holdingItem: bool = false #Whether the clown is already holding an item.
 var heldItem: Item = Item.new()
 
+#Projectiles
+var waterProj = preload("res://Projectiles/WaterDroplet.tscn")
+var juggleProj = preload("res://Projectiles/JuggleBall.tscn")
+var chickProj = preload("res://Projectiles/RubberChicken.tscn")
+var balloonProj = preload("res://Projectiles/BalloonAnimal.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,8 +28,70 @@ func _input(ev):
 	if ev is InputEventKey and ev.keycode == KEY_E and not ev.echo and ev.pressed:
 		RandomItem()
 		
+	##Toss the item if R is pressed
 	if ev is InputEventKey and ev.keycode == KEY_R and not ev.echo and ev.pressed:
 		TossItem()
+		
+	#If the left mouse button is pressed, do projectile stuff with the item
+	#IMPORTANT: THIS WILL BREAK IF THE PLAYER'S POSITION IN THE TREE MOVES. YOU WILL HAVE TO EDIT IT!
+	if ev is InputEventMouseButton and ev.button_index == MOUSE_BUTTON_LEFT and ev.pressed:
+		var mousePos = ev.global_position
+		var player = get_node(^"../Player")
+		var playPos = player.global_position
+		print("Player position is " + str(playPos))
+		print("Mouse position is " + str(mousePos))
+		UseItem(mousePos, playPos)
+		
+#Call this to use the held item	
+func UseItem(mousePos, playPos):
+	print("Using item " + str(heldItem.itemName) + "(" + str(heldItem.id) + ")")
+	match heldItem.id:
+		0: 
+			print("You are holding nothing!")
+		1: #Nonlethal chicken
+			var newProj = chickProj.instantiate()
+			newProj.startPos = playPos
+			newProj.targetPos = mousePos
+			add_child(newProj)
+		2:  #Nonlethal water droplet
+			var newProj = waterProj.instantiate()
+			newProj.startPos = playPos
+			newProj.targetPos = mousePos
+			add_child(newProj)
+		3: #Balloon Animal (Lethal)
+			var newProj = balloonProj.instantiate()
+			newProj.startPos = playPos
+			newProj.targetPos = mousePos
+			newProj.lethal = true
+			add_child(newProj)
+		4: #Nonlethal juggling balls / nose
+			var newProj = juggleProj.instantiate()
+			newProj.startPos = playPos
+			newProj.targetPos = mousePos
+			add_child(newProj)
+		5:  #Lethal chicken
+			var newProj = chickProj.instantiate()
+			newProj.startPos = playPos
+			newProj.targetPos = mousePos
+			newProj.lethal = true
+			add_child(newProj)
+			
+		6:  #Lethal water droplet
+			var newProj = waterProj.instantiate()
+			newProj.startPos = playPos
+			newProj.targetPos = mousePos
+			newProj.lethal = true
+			add_child(newProj)
+			
+		7: #Lethal ball/nose
+			var newProj = juggleProj.instantiate()
+			newProj.startPos = playPos
+			newProj.targetPos = mousePos
+			newProj.lethal = true
+			add_child(newProj)
+		
+		_:
+			print("id " + str(heldItem.id) + "not implemented")
 
 #Generate a random number that will be turned into an item
 func RandomItem():
@@ -48,9 +116,10 @@ func RandomItem():
 			1: #Rubber Chicken (normal)
 				heldItem.itemName = "Rubber Chicken"
 			2: #Squirt Flower (normal)
-				heldItem.itemName = "Squirt Flower"
+				heldItem.itemName = "Water Gun"
 			3: #Horn (normal)
-				heldItem.itemName = "Horn"
+				heldItem.itemName = "Balloon Animal"
+				heldItem.lethal = true
 			4: #Juggling Balls (normal)
 				heldItem.itemName = "Juggling Balls"
 			5: #Rubber Chicken (lethal)

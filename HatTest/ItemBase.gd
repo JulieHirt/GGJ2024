@@ -2,10 +2,10 @@ class_name Item extends Node #Currently not sure if this needs to extend anythin
 
 var itemName: String = "Nothing"
 var id: int = 0             # Which item this is
-						# 0: Something's wrong! This shouldn't happen!
+						# 0: Currently holding nothing
 						# 1: Rubber Chicken (normal)
-						# 2: Squirt Flower (normal)
-						# 3: Horn (normal)
+						# 2: Water Gun (normal)
+						# 3: Balloon Animal (Lethal)
 						# 4: Juggling Balls (normal)
 						# 5: Rubber Chicken (lethal)
 						# 6: Squirt Flower (lethal (acid))

@@ -8,8 +8,8 @@ size = Vector2(123, 121)
 [node name="wall" type="Sprite2D"]
 texture = ExtResource("1_1bjh3")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="WallStaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1.5, 1.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallStaticBody2D"]
 shape = SubResource("RectangleShape2D_nl8lx")

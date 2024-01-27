@@ -45,5 +45,26 @@ func _physics_process(delta):
 	#move_and_slide moves the agent based on its set direction and speed
 	#the direction and speed are stored in the special godot variable "velocity"
 	move_and_slide()
+	handleCollision()
 	
 
+
+	#guard follows set path
+	
+	#if it collides with player, play animation and go to game over screen
+	
+	#extra features, add if there is time
+	#if it hears noise, go towards the source of the noise. then return to next path node
+	#if it "sees" player, go towards player. if it loses sight of player, return to next path node
+	pass
+
+
+func handleCollision():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider =collision.get_collider()
+		print_debug(collider.name)
+		if(collider.name == "Player"):
+			print("Game Over in guard prefab")
+			get_node("..").GameOver()
+			#get_tree().change_scene_to_file("res://game_over.tscn")

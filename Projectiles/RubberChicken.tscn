@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://blwf7xo5asbrp"]
+
+[ext_resource type="Script" path="res://ChickenMovement.gd" id="1_1yo2t"]
+[ext_resource type="Texture2D" uid="uid://bi1p3lvuep11u" path="res://Art/RubberChicken.png" id="1_x3gy1"]
+
+[node name="RubberChicken" type="Node2D"]
+script = ExtResource("1_1yo2t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -2.68224
+scale = Vector2(0.113626, 0.152198)
+texture = ExtResource("1_x3gy1")

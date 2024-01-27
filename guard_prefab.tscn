@@ -4,21 +4,30 @@
 [ext_resource type="Texture2D" uid="uid://ox4ammeeau4x" path="res://Art/PlaceholderGuard.PNG" id="1_5xq0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukk1h"]
-size = Vector2(67, 48)
+size = Vector2(53, 61)
 
 [node name="GuardPrefab" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
 position = Vector2(0, -4)
 script = ExtResource("1_3p5ii")
 navigation_agent = NodePath("NavigationAgent2D")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -4.5)
+shape = SubResource("RectangleShape2D_ukk1h")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(4, -71)
 scale = Vector2(0.453642, 0.470982)
 texture = ExtResource("1_5xq0r")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 7)
-shape = SubResource("RectangleShape2D_ukk1h")
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-151.5, -85.5)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_ukk1h")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,11 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://btsha4mnbk4uj"]
+[gd_scene load_steps=30 format=3 uid="uid://dxvgpv02q3vqj"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_r0lmg"]
-[ext_resource type="Texture2D" uid="uid://bl5kmkcoauimj" path="res://Art/Idle-Front.png" id="2_otpgn"]
+[ext_resource type="Texture2D" path="res://Art/Idle-Front.png" id="2_otpgn"]
 [ext_resource type="Texture2D" uid="uid://dafju4ovmmjy4" path="res://Art/Walk_Left.png" id="3_528h2"]
-[ext_resource type="Texture2D" uid="uid://0qkpckkh8kyv" path="res://Art/Walk_Front-sheet.png" id="3_u3b2m"]
+[ext_resource type="Texture2D" uid="uid://bmdp2lmo6yoir" path="res://Art/Walk_Front-sheet.png" id="3_u3b2m"]
 [ext_resource type="Texture2D" uid="uid://crue5a3x5tsdc" path="res://Art/Walk.png" id="4_5l4hy"]
-[ext_resource type="Texture2D" uid="uid://ca80s3djt0nmv" path="res://Art/Walk_backk-sheet.png" id="5_ppjkk"]
+[ext_resource type="Texture2D" uid="uid://bgbdg5oodogvn" path="res://Art/Walk_backk-sheet.png" id="5_ppjkk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_civ01"]
 radius = 22.0

@@ -19,12 +19,18 @@ func _ready():
 	#prevents jitering/hovering around the destinaion- this sets how close the agent needs to get to the target destination
 	#before it thinks it is at the destination 
 	navigation_agent.path_desired_distance = 4.0
-	navigation_agent.target_desired_distance = 4.0
+	navigation_agent.target_desired_distance = 10.0
 	animPlayer = $AnimationPlayer
 	sprite = $Sprite2D
 
+#important!! we must set the initial target position!!
+	set_movement_target(movement_target.global_position)
+
+
 	# Make sure to not await during _ready.
 	call_deferred("actor_setup")
+	
+	
 
 func actor_setup():
 	#wait after the first frame for the navmesh to be set up
@@ -32,7 +38,9 @@ func actor_setup():
 	print("guard nav mesh setup");
 	
 	# .position gets the position of movement_target which is a Vector2
-	set_movement_target(movement_target.position);
+	#set_movement_target(movement_target.position);
+	#set_movement_target(marker_list.get_child(0).position)
+	#advanceToNextMarker()
 	
 func set_movement_target(target_point: Vector2):
 	navigation_agent.target_position = target_point;
@@ -42,7 +50,7 @@ func advanceToNextMarker():
 	#if we have not reached the last node yet
 	if(path_marker_index < marker_list.get_child_count()):
 		#set the target position to the next marker in the list
-		set_movement_target(marker_list.get_child(path_marker_index).position)
+		set_movement_target(marker_list.get_child(path_marker_index).global_position)
 		path_marker_index = path_marker_index + 1
 	#if we have reached the last node in the list
 	else:

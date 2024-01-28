@@ -100,11 +100,20 @@ scale = Vector2(0.1, 0.1)
 
 [node name="Marker List" type="Marker2D" parent="."]
 
+[node name="Marker2D3" type="Marker2D" parent="Marker List"]
+position = Vector2(327, 247)
+
 [node name="Marker2D" type="Marker2D" parent="Marker List"]
 position = Vector2(848, 249)
 
 [node name="Marker2D2" type="Marker2D" parent="Marker List"]
 position = Vector2(327, 247)
+
+[node name="Marker2D4" type="Marker2D" parent="Marker List"]
+position = Vector2(752, 55)
+
+[node name="Marker2D5" type="Marker2D" parent="Marker List"]
+position = Vector2(362, 0)
 
 [node name="Player" parent="." instance=ExtResource("8_0w06f")]
 position = Vector2(-164, 451)

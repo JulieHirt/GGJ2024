@@ -6,10 +6,10 @@
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="4_nty65"]
 [ext_resource type="PackedScene" uid="uid://s3bg5xptps2t" path="res://HatTest/itemTest.tscn" id="5_q7vld"]
 [ext_resource type="Texture2D" uid="uid://cnbnobjtfuk1q" path="res://Art/Tiles/Tilesheet_1.png" id="6_g8qnn"]
-[ext_resource type="PackedScene" uid="uid://dxvgpv02q3vqj" path="res://player.tscn" id="8_0w06f"]
-[ext_resource type="AudioStream" uid="uid://dl6xkgbe0gaam" path="res://Audio/dialogue/Hello_my_name_is_bubbles.wav" id="8_omcn5"]
-[ext_resource type="PackedScene" uid="uid://xj3l4qscn61m" path="res://CollidableObject.tscn" id="8_s4ovc"]
-[ext_resource type="AudioStream" path="res://Audio/Sounds/Clown_Sneak.mp3" id="9_jctrn"]
+[ext_resource type="PackedScene" uid="uid://btsha4mnbk4uj" path="res://player.tscn" id="8_0w06f"]
+[ext_resource type="AudioStream" uid="uid://cmpy7wourcxl0" path="res://Audio/dialogue/Hello_my_name_is_bubbles.wav" id="8_omcn5"]
+[ext_resource type="PackedScene" uid="uid://5fq8suksrc2k" path="res://CollidableObject.tscn" id="8_s4ovc"]
+[ext_resource type="AudioStream" uid="uid://dppe6xfdeluo" path="res://Audio/Sounds/Clown_Sneak.mp3" id="9_jctrn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qb7tr"]
 texture = ExtResource("6_g8qnn")
@@ -181,7 +181,6 @@ position = Vector2(854, -30)
 
 [node name="Marker2D2" type="Marker2D" parent="Marker List2"]
 position = Vector2(-11, -42)
-
 
 [node name="Target" parent="." instance=ExtResource("8_s4ovc")]
 position = Vector2(821, -51)

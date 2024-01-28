@@ -13,10 +13,19 @@ func get_input():
 	if input_direction:
 		if input_direction.x > 0:
 			animation.play("Walk Right")
+		if input_direction.y > 0:
+			animation.play("Walk Down")
 		if input_direction.x < 0:
 			animation.play ("Walk Left")
+		if input_direction.y < 0:
+			animation.play("Walk Up")
 	else:
 		animation.play("Idle")
+	#Hat Action is defined as the "E" Key on the keyboard
+	if Input.is_action_just_pressed("Hat Action"):
+		#animation.play("Hat") //we don't have this defined yet
+		pass
+	
 
 func _physics_process(_delta):
 	get_input()

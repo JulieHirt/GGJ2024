@@ -1,6 +1,7 @@
 extends Node2D
 
-
+func _ready():
+	$ClownSneak.play()
 
 func Win():
 	print("Win")

@@ -10,6 +10,9 @@ extends CharacterBody2D
 
 var path_marker_index: int = 0 # the index of the path node that the agent is going towards
 
+var animPlayer
+var sprite
+
 func _ready():
 	# These values need to be adjusted for the actor's speed
 	# and the navigation layout.
@@ -17,6 +20,8 @@ func _ready():
 	#before it thinks it is at the destination 
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 4.0
+	animPlayer = $AnimationPlayer
+	sprite = $Sprite2D
 
 	# Make sure to not await during _ready.
 	call_deferred("actor_setup")
@@ -58,6 +63,20 @@ func _physics_process(delta):
 	#To normalize a vector means to go in the same direction, but to only travel a distance of 1 unit
 	new_velocity = new_velocity.normalized()
 	new_velocity = new_velocity * movement_speed
+	
+	var old_velocity: Vector2 = velocity
+	
+	#flip the guard so it faces the correct direction
+	
+	#if velocity.x and new_velocity.x do not have the same sign (not both + or both -)
+	
+	#if velocity went from - to +
+	if(old_velocity.x < 0 and new_velocity.x > 0):
+		sprite.scale.x *= -1
+	#if velocity went from + to -
+	else:
+		if(old_velocity.x > 0 and new_velocity.x < 0):
+			sprite.scale.x *= -1
 	
 	velocity = new_velocity
 	#move_and_slide moves the agent based on its set direction and speed

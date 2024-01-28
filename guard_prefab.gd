@@ -97,7 +97,7 @@ func handleCollision():
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider =collision.get_collider()
-		print_debug(collider.name)
+		#print_debug(collider.name)
 		if(collider.name == "Player"):
 			print("Game Over in guard prefab")
 			get_node("..").GameOver()

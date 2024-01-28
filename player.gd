@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var animation = get_node("AnimatedSprite2D")
+@onready var node = preload("res://juggle_ball.tscn")
 
 const speed = 300.0
 
@@ -23,7 +24,7 @@ func get_input():
 		animation.play("Idle")
 	#Hat Action is defined as the "E" Key on the keyboard
 	if Input.is_action_just_pressed("Hat Action"):
-		#animation.play("Hat") //we don't have this defined yet
+		
 		pass
 	
 

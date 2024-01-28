@@ -8,7 +8,7 @@ var heldItem: Item = Item.new()
 
 #Projectiles
 var waterProj = preload("res://Projectiles/WaterDroplet.tscn")
-var juggleProj = preload("res://Projectiles/JuggleBall.tscn")
+var juggleProj = preload("res://juggle_ball.tscn")
 var chickProj = preload("res://Projectiles/RubberChicken.tscn")
 var balloonProj = preload("res://Projectiles/BalloonAnimal.tscn")
 var shockProj = preload("res://Projectiles/HandShocker.tscn")
@@ -123,7 +123,7 @@ func RandomItem():
 		##CONSIDER: tossing the item currently held instead of rejecting the command
 	#If not, get the number
 	else:
-		var randNum: int = randGen.randf_range(1, 11);  #NOTE: Remember to update this as needed
+		var randNum: int = randGen.randf_range(4,5);  #NOTE: Remember to update this as needed
 		#NOTE: This seems to be lower inclusive, upper exclusive. this means the highest number will never be rolled.
 		#In short, always make it one higher than we're using
 		

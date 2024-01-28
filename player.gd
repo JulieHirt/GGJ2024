@@ -11,9 +11,9 @@ func get_input():
 	var input_direction = Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = input_direction * speed
 	if input_direction:
-		if speed > 0:
+		if input_direction.x > 0:
 			animation.play("Walk Right")
-		if speed < 0:
+		if input_direction.x < 0:
 			animation.play ("Walk Left")
 	else:
 		animation.play("Idle")

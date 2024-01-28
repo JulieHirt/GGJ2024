@@ -1,11 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cb1ayhpa58ng6"]
+[gd_scene load_steps=5 format=3 uid="uid://cb1ayhpa58ng6"]
 
 [ext_resource type="Script" path="res://JuggleMovement.gd" id="1_50ju8"]
 [ext_resource type="Texture2D" uid="uid://pqgm51juig5q" path="res://Art/JuggleBall.png" id="1_qcl2h"]
 
-[node name="JuggleBall" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yn4lh"]
+radius = 26.6833
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2w52i"]
+radius = 24.1868
+
+[node name="JuggleBall" type="CharacterBody2D"]
 script = ExtResource("1_50ju8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yn4lh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.151316, 0.150685)
 texture = ExtResource("1_qcl2h")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_2w52i")

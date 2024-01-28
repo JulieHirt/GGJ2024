@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://blwf7xo5asbrp"]
+[gd_scene load_steps=4 format=3 uid="uid://blwf7xo5asbrp"]
 
 [ext_resource type="Script" path="res://ChickenMovement.gd" id="1_1yo2t"]
 [ext_resource type="Texture2D" uid="uid://bi1p3lvuep11u" path="res://Art/RubberChicken.png" id="1_x3gy1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_66yb3"]
 
 [node name="RubberChicken" type="Node2D"]
 script = ExtResource("1_1yo2t")
@@ -10,3 +12,8 @@ script = ExtResource("1_1yo2t")
 rotation = -2.68224
 scale = Vector2(0.113626, 0.152198)
 texture = ExtResource("1_x3gy1")
+
+[node name="RubberChicken" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RubberChicken"]
+shape = SubResource("CircleShape2D_66yb3")

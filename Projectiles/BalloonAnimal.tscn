@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfqdlxpb02raa"]
+[gd_scene load_steps=4 format=3 uid="uid://dfqdlxpb02raa"]
 
 [ext_resource type="Texture2D" uid="uid://bxrdoqtxj22nt" path="res://Art/balloonanimal.webp" id="1_bws4c"]
 [ext_resource type="Script" path="res://BalloonMovement.gd" id="1_si3ge"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2jjp3"]
 
 [node name="BalloonAnimal" type="Node2D"]
 script = ExtResource("1_si3ge")
@@ -9,3 +11,8 @@ script = ExtResource("1_si3ge")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.121932, 0.104071)
 texture = ExtResource("1_bws4c")
+
+[node name="BalloonAnimal" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BalloonAnimal"]
+shape = SubResource("CircleShape2D_2jjp3")

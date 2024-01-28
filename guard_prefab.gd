@@ -24,7 +24,7 @@ func _ready():
 func actor_setup():
 	#wait after the first frame for the navmesh to be set up
 	await get_tree().physics_frame
-	print("guard nav mesh setup");
+	#print("guard nav mesh setup");
 	
 	# .position gets the position of movement_target which is a Vector2
 	set_movement_target(movement_target.position);
@@ -33,7 +33,7 @@ func set_movement_target(target_point: Vector2):
 	navigation_agent.target_position = target_point;
 
 func advanceToNextMarker():
-	print("reached marker. Going to next marker.")
+	#print("reached marker. Going to next marker.")
 	#if we have not reached the last node yet
 	if(path_marker_index < marker_list.get_child_count()):
 		#set the target position to the next marker in the list

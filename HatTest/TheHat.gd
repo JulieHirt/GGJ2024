@@ -11,6 +11,8 @@ var waterProj = preload("res://Projectiles/WaterDroplet.tscn")
 var juggleProj = preload("res://Projectiles/JuggleBall.tscn")
 var chickProj = preload("res://Projectiles/RubberChicken.tscn")
 var balloonProj = preload("res://Projectiles/BalloonAnimal.tscn")
+var shockProj = preload("res://Projectiles/HandShocker.tscn")
+var gunProj = preload("res://Projectiles/FakeGun.tscn")
 
 
 
@@ -92,7 +94,17 @@ func UseItem(mousePos, playPos):
 			newProj.targetPos = mousePos
 			newProj.lethal = true
 			add_child(newProj)
-		
+		8: #Shocker
+			var newProj = shockProj.instantiate()
+			newProj.startPos = playPos
+			newProj.targetPos = mousePos
+			newProj.lethal = true
+			add_child(newProj)
+		9: #Fake Gun
+			var newProj = gunProj.instantiate()
+			newProj.startPos = playPos
+			newProj.targetPos = mousePos
+			add_child(newProj)
 		_:
 			print("id " + str(heldItem.id) + "not implemented")
 
@@ -105,7 +117,7 @@ func RandomItem():
 		##CONSIDER: tossing the item currently held instead of rejecting the command
 	#If not, get the number
 	else:
-		var randNum: int = randGen.randf_range(1, 8);  #NOTE: Remember to update this as needed
+		var randNum: int = randGen.randf_range(1, 10);  #NOTE: Remember to update this as needed
 		#NOTE: This seems to be lower inclusive, upper exclusive. this means the highest number will never be rolled.
 		#In short, always make it one higher than we're using
 		
@@ -138,6 +150,13 @@ func RandomItem():
 				heldItem.susSightUsed = true
 				heldItem.susHearUsed = true
 				heldItem.lethal = true
+			8: #Shocker (lethal)
+				heldItem.itemName = "Hand Shocker"
+				heldItem.susSightUsed = true
+				heldItem.lethal = true
+			9: #fake gun
+				heldItem.itemName = "BANG!"
+				heldItem.susSightHeld = true
 			_: 
 				print("No implementation for item with id " + str(randNum))
 		

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddkm11ibxh7ov"]
+
+[ext_resource type="Script" path="res://ShockMovement.gd" id="1_i17o5"]
+[ext_resource type="Texture2D" uid="uid://d2nw5x5ygfvo1" path="res://Art/Electric.png" id="1_tc5fb"]
+
+[node name="HandShocker" type="Node2D"]
+script = ExtResource("1_i17o5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0951207, 0.0931678)
+texture = ExtResource("1_tc5fb")

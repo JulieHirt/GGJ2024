@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://cb80s50aylc41"]
+[gd_scene load_steps=30 format=3 uid="uid://cb80s50aylc41"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_r0lmg"]
 [ext_resource type="Texture2D" uid="uid://bl5kmkcoauimj" path="res://Art/Idle-Front.png" id="2_otpgn"]
 [ext_resource type="Texture2D" uid="uid://dafju4ovmmjy4" path="res://Art/Walk_Left.png" id="3_528h2"]
+[ext_resource type="Texture2D" uid="uid://bmdp2lmo6yoir" path="res://Art/Walk_Front-sheet.png" id="3_u3b2m"]
 [ext_resource type="Texture2D" uid="uid://crue5a3x5tsdc" path="res://Art/Walk.png" id="4_5l4hy"]
+[ext_resource type="Texture2D" uid="uid://bgbdg5oodogvn" path="res://Art/Walk_backk-sheet.png" id="5_ppjkk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_civ01"]
 radius = 22.0
@@ -25,6 +27,18 @@ region = Rect2(256, 0, 128, 128)
 atlas = ExtResource("2_otpgn")
 region = Rect2(384, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gulgc"]
+atlas = ExtResource("3_u3b2m")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5uj8"]
+atlas = ExtResource("3_u3b2m")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ve54"]
+atlas = ExtResource("3_u3b2m")
+region = Rect2(96, 0, 48, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6p1jv"]
 atlas = ExtResource("3_528h2")
 region = Rect2(0, 0, 128, 128)
@@ -40,6 +54,18 @@ region = Rect2(0, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gpr2a"]
 atlas = ExtResource("4_5l4hy")
 region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga2x4"]
+atlas = ExtResource("5_ppjkk")
+region = Rect2(0, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syfod"]
+atlas = ExtResource("5_ppjkk")
+region = Rect2(48, 0, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l85mg"]
+atlas = ExtResource("5_ppjkk")
+region = Rect2(96, 0, 48, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ayh17"]
 animations = [{
@@ -62,6 +88,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_gulgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5uj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ve54")
+}],
+"loop": true,
+"name": &"Walk Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6p1jv")
 }, {
 "duration": 1.0,
@@ -80,6 +120,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walk Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga2x4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syfod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l85mg")
+}],
+"loop": true,
+"name": &"Walk Up",
 "speed": 5.0
 }]
 
@@ -124,6 +178,35 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_q0c4e"]
+resource_name = "Walk Down"
+length = 0.30001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk Down"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
 }
 
 [sub_resource type="Animation" id="Animation_nmn2w"]
@@ -184,12 +267,43 @@ tracks/1/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_kjekg"]
+resource_name = "Walk Up"
+length = 0.30001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk Up"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oioeq"]
 _data = {
 "Idle": SubResource("Animation_wboi7"),
 "RESET": SubResource("Animation_l46f4"),
+"Walk Down": SubResource("Animation_q0c4e"),
 "Walk Left": SubResource("Animation_nmn2w"),
-"Walk Right": SubResource("Animation_l75tj")
+"Walk Right": SubResource("Animation_l75tj"),
+"Walk Up": SubResource("Animation_kjekg")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -200,7 +314,7 @@ shape = SubResource("CapsuleShape2D_civ01")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ayh17")
-animation = &"Walk Left"
+animation = &"Walk Down"
 frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]

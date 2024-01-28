@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://ReturnToMainMenu.gd" id="1_jneo8"]
 [ext_resource type="Script" path="res://LossSound.gd" id="1_shn58"]
 [ext_resource type="Texture2D" uid="uid://w0twbsctxi75" path="res://Art/animations/You_failed.png" id="2_35d6d"]
-[ext_resource type="Texture2D" uid="uid://bcx0xad6ktaor" path="res://Art/animations/You_Lose.png" id="3_34ckf"]
-[ext_resource type="AudioStream" uid="uid://bog7utpevu6k1" path="res://Audio/dialogue/Guard_this_is_your_final_warning.wav" id="4_dbye0"]
+[ext_resource type="Texture2D" uid="uid://che1pyem0ong3" path="res://Art/animations/You_Lose.png" id="3_34ckf"]
+[ext_resource type="AudioStream" uid="uid://ck2nbv3aeqi4d" path="res://Audio/dialogue/Guard_this_is_your_final_warning.wav" id="4_dbye0"]
 
 [sub_resource type="Animation" id="Animation_kbhu3"]
 length = 0.001

@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://c3lu51cck8s4a"]
 
 [ext_resource type="Script" path="res://ReturnToMainMenu.gd" id="1_a786j"]
-[ext_resource type="Texture2D" uid="uid://dtpsjj20y8wcv" path="res://Art/animations/You_Win.png" id="2_m5qxx"]
-[ext_resource type="AudioStream" uid="uid://bkchs5affrbd8" path="res://Audio/dialogue/Bubbles_another_successful_mission.wav" id="3_0m0p4"]
+[ext_resource type="Texture2D" uid="uid://y32mpslbwdp2" path="res://Art/animations/You_Win.png" id="2_m5qxx"]
+[ext_resource type="AudioStream" uid="uid://crht8so2r46yk" path="res://Audio/dialogue/Bubbles_another_successful_mission.wav" id="3_0m0p4"]
 [ext_resource type="Script" path="res://WinSound.gd" id="3_kclea"]
-[ext_resource type="AudioStream" uid="uid://c7nrk76wwyk11" path="res://Audio/dialogue/Bubbles_yay.wav" id="4_d0sgc"]
+[ext_resource type="AudioStream" uid="uid://bfjh0ehl5ila0" path="res://Audio/dialogue/Bubbles_yay.wav" id="4_d0sgc"]
 
 [sub_resource type="Animation" id="Animation_tneyf"]
 length = 0.001

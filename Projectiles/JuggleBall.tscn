@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://cb1ayhpa58ng6"]
 
 [ext_resource type="Script" path="res://JuggleMovement.gd" id="1_50ju8"]
-[ext_resource type="Texture2D" uid="uid://pqgm51juig5q" path="res://Art/JuggleBall.png" id="1_qcl2h"]
+[ext_resource type="Texture2D" uid="uid://da7glg5mu5hls" path="res://Art/Icons/Clown_Nose.png" id="2_bdau4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yn4lh"]
-radius = 26.6833
+radius = 35.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2w52i"]
-radius = 24.1868
+radius = 38.0
 
 [node name="JuggleBall" type="CharacterBody2D"]
 script = ExtResource("1_50ju8")
@@ -16,8 +16,9 @@ script = ExtResource("1_50ju8")
 shape = SubResource("CircleShape2D_yn4lh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.151316, 0.150685)
-texture = ExtResource("1_qcl2h")
+position = Vector2(-1, 1)
+scale = Vector2(8.94803, 9.25115)
+texture = ExtResource("2_bdau4")
 
 [node name="Area2D" type="Area2D" parent="."]
 

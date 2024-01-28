@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://hsw17i815ikj"]
+[gd_scene load_steps=4 format=3 uid="uid://cn6j60kuxxkuo"]
 
-[ext_resource type="PackedScene" uid="uid://cb80s50aylc41" path="res://player.tscn" id="1_caj7a"]
+[ext_resource type="PackedScene" uid="uid://dxvgpv02q3vqj" path="res://player.tscn" id="1_caj7a"]
 [ext_resource type="Script" path="res://CollisionTestCode.gd" id="2_emtc5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4n0xj"]

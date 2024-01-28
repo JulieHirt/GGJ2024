@@ -32,18 +32,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [1]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_4gm7k"]
 resource_name = "guardleft"
@@ -76,6 +64,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_j7mso"]
 resource_name = "guardright"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -100,18 +89,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [1, 2, 3, 4, 5, 6, 7, 7]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_foh2q"]
 _data = {
@@ -126,9 +103,8 @@ script = ExtResource("1_3p5ii")
 navigation_agent = NodePath("NavigationAgent2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.064, 1)
+scale = Vector2(0.8, 0.752)
 texture = ExtResource("2_fjgxu")
-flip_h = true
 hframes = 4
 vframes = 2
 frame = 1

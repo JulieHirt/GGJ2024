@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwwuqu17ujgeo"]
+[gd_scene load_steps=12 format=3 uid="uid://cwwuqu17ujgeo"]
 
 [ext_resource type="Script" path="res://level1.gd" id="1_tn5r5"]
 [ext_resource type="PackedScene" uid="uid://c8tvkoy1qfr85" path="res://guard_prefab.tscn" id="3_8mnv1"]
@@ -6,7 +6,8 @@
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="4_nty65"]
 [ext_resource type="PackedScene" uid="uid://s3bg5xptps2t" path="res://HatTest/itemTest.tscn" id="5_q7vld"]
 [ext_resource type="Texture2D" uid="uid://cnbnobjtfuk1q" path="res://Art/Tiles/Tilesheet_1.png" id="6_g8qnn"]
-[ext_resource type="PackedScene" uid="uid://cb80s50aylc41" path="res://player.tscn" id="8_0w06f"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="8_0w06f"]
+[ext_resource type="AudioStream" uid="uid://cmpy7wourcxl0" path="res://Audio/dialogue/Hello_my_name_is_bubbles.wav" id="8_omcn5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qb7tr"]
 texture = ExtResource("6_g8qnn")
@@ -116,3 +117,6 @@ limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("4_nty65")
 tilemap = NodePath("../../TileMap")
+
+[node name="HelloSFX" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("8_omcn5")

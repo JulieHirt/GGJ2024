@@ -127,6 +127,10 @@ func RandomItem():
 		#NOTE: This seems to be lower inclusive, upper exclusive. this means the highest number will never be rolled.
 		#In short, always make it one higher than we're using
 		
+		var soundNum: int = randGen.randf_range(1, 10);
+		if soundNum == 1:
+			$Laugh.play()
+		
 		print("Making item " + str(randNum))
 		holdingItem = true
 		

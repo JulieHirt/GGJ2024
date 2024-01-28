@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bssy7wpjs7tkb"]
+
+[ext_resource type="Script" path="res://TargetTest/Target.gd" id="1_21ugl"]
+[ext_resource type="Texture2D" uid="uid://de0qdhqf7ni07" path="res://Art/jeff-bezos.jpg" id="3_hr3w2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukk1h"]
+size = Vector2(945.126, 606.036)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31kdl"]
+size = Vector2(945.126, 606.036)
+
+[node name="Bezos" type="CharacterBody2D"]
+position = Vector2(0, -4)
+scale = Vector2(0.0158709, 0.0379516)
+script = ExtResource("1_21ugl")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="Jeff-bezos" type="Sprite2D" parent="."]
+position = Vector2(86, 89)
+texture = ExtResource("3_hr3w2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.8147e-06, 79.048)
+shape = SubResource("RectangleShape2D_ukk1h")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(63.0084, 79.048)
+shape = SubResource("RectangleShape2D_31kdl")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

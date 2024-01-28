@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://s3bg5xptps2t"]
+[gd_scene load_steps=4 format=3 uid="uid://s3bg5xptps2t"]
 
 [ext_resource type="Texture2D" uid="uid://clbbtfoqs3iog" path="res://Art/MagicHat.png" id="1_fr4l6"]
 [ext_resource type="Script" path="res://HatTest/TheHat.gd" id="1_ksml1"]
+[ext_resource type="AudioStream" uid="uid://glbjebaq080d" path="res://Audio/dialogue/Bubbles_laughing.wav" id="2_8rn4j"]
 
 [node name="ItemTest" type="Node2D"]
 position = Vector2(1052, 324)
 script = ExtResource("1_ksml1")
+
+[node name="Laugh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8rn4j")
 
 [node name="FunnyHat" type="Node2D" parent="."]
 position = Vector2(-363, -405)

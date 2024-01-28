@@ -6,6 +6,7 @@ const speed = 300.0
 
 func _ready():
 	animation.play("Idle")
+	$HelloSFX.play()
 
 func get_input():
 	var input_direction = Input.get_vector("Left", "Right", "Up", "Down")

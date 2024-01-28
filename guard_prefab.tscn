@@ -105,6 +105,7 @@ navigation_agent = NodePath("NavigationAgent2D")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.8, 0.752)
 texture = ExtResource("2_fjgxu")
+flip_h = true
 hframes = 4
 vframes = 2
 frame = 1

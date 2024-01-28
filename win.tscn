@@ -67,7 +67,7 @@ _data = {
 "wintext": SubResource("Animation_4kilw")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_a786j")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

@@ -58,7 +58,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(571, -207, -337, -206, -341, 514, 988, 514, 986, -208)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 position = Vector2(191, 117)
 script = ExtResource("1_tn5r5")
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://prprgvhsv42w"]
+[gd_scene load_steps=4 format=3 uid="uid://prprgvhsv42w"]
 
 [ext_resource type="Script" path="res://GunMovement.gd" id="1_5gcd8"]
 [ext_resource type="Texture2D" uid="uid://cl6adey0n6vvi" path="res://Art/banggun.png" id="1_nimg7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_73jjk"]
 
 [node name="FakeGun" type="Node2D"]
 script = ExtResource("1_5gcd8")
@@ -10,3 +12,8 @@ script = ExtResource("1_5gcd8")
 rotation = -1.16577
 scale = Vector2(0.348754, 0.341542)
 texture = ExtResource("1_nimg7")
+
+[node name="FakeGun" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeGun"]
+shape = SubResource("CircleShape2D_73jjk")

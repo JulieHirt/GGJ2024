@@ -1,7 +1,11 @@
 extends Node2D
 
+func _ready():
+	$ClownSneak.play()
+
 func Win():
 	print("Win")
+
 	#this code is janky
 	#see https://github.com/godotengine/godot/issues/85251
 	if(is_inside_tree()):

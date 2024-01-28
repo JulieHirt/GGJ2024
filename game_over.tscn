@@ -1,8 +1,37 @@
-[gd_scene load_steps=7 format=3 uid="uid://doddciaa15mvr"]
+[gd_scene load_steps=9 format=3 uid="uid://doddciaa15mvr"]
 
 [ext_resource type="Script" path="res://ReturnToMainMenu.gd" id="1_jneo8"]
+[ext_resource type="Script" path="res://LossSound.gd" id="1_shn58"]
 [ext_resource type="Texture2D" uid="uid://w0twbsctxi75" path="res://Art/animations/You_failed.png" id="2_35d6d"]
-[ext_resource type="Texture2D" uid="uid://che1pyem0ong3" path="res://Art/animations/You_Lose.png" id="3_34ckf"]
+[ext_resource type="Texture2D" uid="uid://bcx0xad6ktaor" path="res://Art/animations/You_Lose.png" id="3_34ckf"]
+[ext_resource type="AudioStream" uid="uid://bog7utpevu6k1" path="res://Audio/dialogue/Guard_this_is_your_final_warning.wav" id="4_dbye0"]
+
+[sub_resource type="Animation" id="Animation_kbhu3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_34ckf")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_ga714"]
 resource_name = "losetext"
@@ -32,33 +61,6 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_kbhu3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_34ckf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j5tnu"]
 _data = {
 "RESET": SubResource("Animation_kbhu3"),
@@ -72,6 +74,10 @@ script = ExtResource("1_jneo8")
 position = Vector2(590, 311)
 scale = Vector2(2.32031, 1.25)
 texture = ExtResource("2_35d6d")
+script = ExtResource("1_shn58")
+
+[node name="FinalWarning" type="AudioStreamPlayer" parent="YouFailed"]
+stream = ExtResource("4_dbye0")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 400.0

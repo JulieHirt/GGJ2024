@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c8tvkoy1qfr85"]
 
 [ext_resource type="Script" path="res://guard_prefab.gd" id="1_3p5ii"]
-[ext_resource type="Texture2D" uid="uid://byulwydh0woho" path="res://Art/Guard_Walk_Left.png" id="2_fjgxu"]
+[ext_resource type="Texture2D" uid="uid://chawceo31oyeu" path="res://Art/Guard_Walk_Left.png" id="2_fjgxu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukk1h"]
 size = Vector2(25, 53)

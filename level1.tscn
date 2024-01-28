@@ -133,12 +133,12 @@ position_smoothing_enabled = true
 script = ExtResource("4_nty65")
 tilemap = NodePath("../../TileMap")
 
-
 [node name="HelloSFX" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("8_omcn5")
 
 [node name="ClownSneak" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_jctrn")
+
 [node name="wall4" parent="." instance=ExtResource("4_6473g")]
 position = Vector2(-77.0001, 113)
 rotation = -1.5708
@@ -176,4 +176,3 @@ position = Vector2(854, -30)
 
 [node name="Marker2D2" type="Marker2D" parent="Marker List2"]
 position = Vector2(-11, -42)
-

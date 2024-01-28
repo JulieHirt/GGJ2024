@@ -1,0 +1,163 @@
+[gd_scene load_steps=18 format=3 uid="uid://bfmacbqkhus64"]
+
+[ext_resource type="Script" path="res://prologue_dialogue.gd" id="1_41x44"]
+[ext_resource type="AudioStream" uid="uid://bs5cpl4fico3q" path="res://Audio/dialogue/Huh_who_are_you.wav" id="1_g4wa2"]
+[ext_resource type="AudioStream" uid="uid://cmpy7wourcxl0" path="res://Audio/dialogue/Hello_my_name_is_bubbles.wav" id="2_5p6gd"]
+[ext_resource type="AudioStream" uid="uid://caodrr8e0et3q" path="res://Audio/dialogue/Hello_mister_bubbles.wav" id="4_f4yvk"]
+[ext_resource type="Texture2D" uid="uid://0gbmb4rfyhd1" path="res://Art/animations/Cutscene_Animation.png" id="5_5f166"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_001hn"]
+atlas = ExtResource("5_5f166")
+region = Rect2(0, 0, 150, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3731"]
+atlas = ExtResource("5_5f166")
+region = Rect2(150, 0, 150, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01e5e"]
+atlas = ExtResource("5_5f166")
+region = Rect2(300, 0, 150, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph2pu"]
+atlas = ExtResource("5_5f166")
+region = Rect2(450, 0, 150, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41ul8"]
+atlas = ExtResource("5_5f166")
+region = Rect2(600, 0, 150, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j7gn"]
+atlas = ExtResource("5_5f166")
+region = Rect2(750, 0, 150, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swqsd"]
+atlas = ExtResource("5_5f166")
+region = Rect2(900, 0, 150, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efq37"]
+atlas = ExtResource("5_5f166")
+region = Rect2(1050, 0, 150, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vxl4n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_001hn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3731")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01e5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ph2pu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41ul8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j7gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swqsd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efq37")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="Animation" id="Animation_vgb6b"]
+resource_name = "prologue"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_5f166")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 7, 7]
+}
+
+[sub_resource type="Animation" id="Animation_787p6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_5f166")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e8xlw"]
+_data = {
+"RESET": SubResource("Animation_787p6"),
+"prologue": SubResource("Animation_vgb6b")
+}
+
+[node name="Prologue" type="Node2D"]
+script = ExtResource("1_41x44")
+
+[node name="WhoYou" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_g4wa2")
+
+[node name="MyName" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5p6gd")
+
+[node name="HelloMister" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_f4yvk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(579.25, 326)
+scale = Vector2(7.71667, 5.0625)
+texture = ExtResource("5_5f166")
+hframes = 8
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(579.25, 326)
+scale = Vector2(7.71667, 5.0625)
+sprite_frames = SubResource("SpriteFrames_vxl4n")
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e8xlw")
+}
+autoplay = "prologue"

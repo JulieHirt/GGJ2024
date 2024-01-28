@@ -13,6 +13,7 @@ var chickProj = preload("res://Projectiles/RubberChicken.tscn")
 var balloonProj = preload("res://Projectiles/BalloonAnimal.tscn")
 var shockProj = preload("res://Projectiles/HandShocker.tscn")
 var gunProj = preload("res://Projectiles/FakeGun.tscn")
+var handProj = preload("res://Projectiles/StickyHand.tscn")
 
 
 
@@ -105,6 +106,11 @@ func UseItem(mousePos, playPos):
 			newProj.startPos = playPos
 			newProj.targetPos = mousePos
 			add_child(newProj)
+		10: #Sticky Hand
+			var newProj = handProj.instantiate()
+			newProj.startPos = playPos
+			newProj.targetPos = mousePos
+			add_child(newProj)
 		_:
 			print("id " + str(heldItem.id) + "not implemented")
 
@@ -117,7 +123,7 @@ func RandomItem():
 		##CONSIDER: tossing the item currently held instead of rejecting the command
 	#If not, get the number
 	else:
-		var randNum: int = randGen.randf_range(1, 10);  #NOTE: Remember to update this as needed
+		var randNum: int = randGen.randf_range(1, 11);  #NOTE: Remember to update this as needed
 		#NOTE: This seems to be lower inclusive, upper exclusive. this means the highest number will never be rolled.
 		#In short, always make it one higher than we're using
 		
@@ -157,6 +163,8 @@ func RandomItem():
 			9: #fake gun
 				heldItem.itemName = "BANG!"
 				heldItem.susSightHeld = true
+			10: #sticky hand 
+				heldItem.itemName = "Sticky Hand"
 			_: 
 				print("No implementation for item with id " + str(randNum))
 		

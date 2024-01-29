@@ -46,11 +46,10 @@ func _process(_delta):
 		anim_done = 0
 	if anim_done == 1:
 		update_walk_anim()
-	#anim_done = 0
+
 
 
 
 func _on_animated_sprite_2d_animation_finished():
 	anim_done = 1
-	#update_walk_anim()
 	animation.play("Idle")

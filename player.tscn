@@ -190,7 +190,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n80ep")
 }],
-"loop": true,
+"loop": false,
 "name": &"Hat",
 "speed": 5.0
 }, {
@@ -265,6 +265,7 @@ animations = [{
 [sub_resource type="Animation" id="Animation_25hly"]
 resource_name = "Hat"
 length = 5.0
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -336,7 +337,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_q0c4e"]
 resource_name = "Walk Down"
 length = 0.30001
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -365,7 +366,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_nmn2w"]
 resource_name = "Walk Left"
 length = 1.00001
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -394,7 +395,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_l75tj"]
 resource_name = "Walk Right"
 length = 0.80001
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -423,7 +424,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_kjekg"]
 resource_name = "Walk Up"
 length = 0.30001
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -468,7 +469,7 @@ shape = SubResource("CapsuleShape2D_civ01")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ayh17")
-animation = &"Hat"
+animation = &"Idle"
 frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -484,3 +485,5 @@ position_smoothing_enabled = true
 libraries = {
 "": SubResource("AnimationLibrary_oioeq")
 }
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

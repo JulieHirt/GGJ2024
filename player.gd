@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var animation = get_node("AnimatedSprite2D")
 
-var anim_done = 0
+var anim_done = 1
 var input_direction
 
 const speed = 300.0
